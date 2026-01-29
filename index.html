@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Fragment #03 - Kaelen Thorne</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./assets/favicon-thorne.ico">
+    <style>
+        .glitch-text {
+            position: relative;
+            display: inline-block;
+        }
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff00ff;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -2px 0 #00ffff;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim {
+            0% { clip: rect(31px, 9999px, 94px, 0); }
+            5% { clip: rect(112px, 9999px, 76px, 0); }
+            10% { clip: rect(85px, 9999px, 77px, 0); }
+            15% { clip: rect(27px, 9999px, 97px, 0); }
+            20% { clip: rect(64px, 9999px, 98px, 0); }
+            25% { clip: rect(61px, 9999px, 85px, 0); }
+            30% { clip: rect(99px, 9999px, 85px, 0); }
+            35% { clip: rect(74px, 9999px, 92px, 0); }
+            40% { clip: rect(29px, 9999px, 84px, 0); }
+            45% { clip: rect(22px, 9999px, 67px, 0); }
+            50% { clip: rect(53px, 9999px, 68px, 0); }
+            55% { clip: rect(33px, 9999px, 84px, 0); }
+            60% { clip: rect(84px, 9999px, 50px, 0); }
+            65% { clip: rect(13px, 9999px, 99px, 0); }
+            70% { clip: rect(36px, 9999px, 85px, 0); }
+            75% { clip: rect(49px, 9999px, 91px, 0); }
+            80% { clip: rect(52px, 9999px, 74px, 0); }
+            85% { clip: rect(88px, 9999px, 96px, 0); }
+            90% { clip: rect(71px, 9999px, 93px, 0); }
+            95% { clip: rect(20px, 9999px, 78px, 0); }
+            100% { clip: rect(70px, 9999px, 100px, 0); }
+        }
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            5% { clip: rect(52px, 9999px, 74px, 0); }
+            10% { clip: rect(79px, 9999px, 85px, 0); }
+            15% { clip: rect(75px, 9999px, 5px, 0); }
+            20% { clip: rect(67px, 9999px, 61px, 0); }
+            25% { clip: rect(14px, 9999px, 79px, 0); }
+            30% { clip: rect(1px, 9999px, 66px, 0); }
+            35% { clip: rect(86px, 9999px, 30px, 0); }
+            40% { clip: rect(23px, 9999px, 89px, 0); }
+            45% { clip: rect(66px, 9999px, 51px, 0); }
+            50% { clip: rect(47px, 9999px, 34px, 0); }
+            55% { clip: rect(71px, 9999px, 75px, 0); }
+            60% { clip: rect(2px, 9999px, 37px, 0); }
+            65% { clip: rect(30px, 9999px, 87px, 0); }
+            70% { clip: rect(60px, 9999px, 77px, 0); }
+            75% { clip: rect(17px, 9999px, 97px, 0); }
+            80% { clip: rect(96px, 9999px, 100px, 0); }
+            85% { clip: rect(46px, 9999px, 83px, 0); }
+            90% { clip: rect(54px, 9999px, 83px, 0); }
+            95% { clip: rect(27px, 9999px, 84px, 0); }
+            100% { clip: rect(55px, 9999px, 85px, 0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Efeito de glitch fixo -->
+    <div class="glitch-overlay"></div>
+    
+    <!-- Efeito de ruído estático -->
+    <div class="static-overlay"></div>
+    
+    <!-- Mensagens de sistema flutuantes -->
+    <div class="system-messages">
+        <div class="system-message" id="sys-msg-1">[SYSTEM] Corrupção de dados detectada: 47%</div>
+        <div class="system-message" id="sys-msg-2">[NEXUS] Pacote de dados fragmentado recebido</div>
+        <div class="system-message" id="sys-msg-3">[SECURITY] Rastreamento de sinal: OFFLINE</div>
+    </div>
+
+    <div class="container thorn-theme">
+        <!-- Cabeçalho com identidade fragmentada -->
+        <div class="chat-header">
+            <div class="avatar">
+                <div class="avatar-placeholder" id="avatar-placeholder">
+                    <div class="avatar-static">
+                        <div class="static-line"></div>
+                        <div class="static-line"></div>
+                        <div class="static-line"></div>
+                    </div>
+                    <span class="avatar-label">[IMAGEM CORROMPIDA]</span>
+                </div>
+                <div class="online-dot thorn" id="status-dot"></div>
+            </div>
+            <div class="header-info">
+                <h1 class="glitch-text" data-text="KAELEN THORNE">KAELEN THORNE</h1>
+                <p class="subtitle">
+                    <span class="flicker">NV-45-GAMMA</span> 
+                    <span class="strikethrough">(apagado duas vezes)</span>
+                </p>
+                <div class="status">
+                    <span class="typing-indicator" id="typing">
+                        <span class="typing-dots">
+                            <span class="dot">.</span>
+                            <span class="dot">.</span>
+                            <span class="dot">.</span>
+                        </span>
+                        reconstruindo mensagem
+                    </span>
+                    <span class="affinity" id="affinity-score">
+                        <i class="fas fa-signal"></i>
+                        <span id="resonance-value">Ressonância: 0%</span>
+                    </span>
+                </div>
+            </div>
+            <button class="restart-btn" id="restart-btn" title="Reiniciar conexão">
+                <i class="fas fa-satellite-dish"></i>
+            </button>
+        </div>
+
+        <!-- Área de Conversa com efeito de terminal -->
+        <div class="chat-container" id="chat-container">
+            <!-- Cabeçalho de terminal -->
+            <div class="terminal-header">
+                <div class="terminal-tabs">
+                    <div class="tab active">nexus_connection.log</div>
+                    <div class="tab">memory_fragments.db</div>
+                    <div class="tab">eros_protocol.md</div>
+                </div>
+                <div class="terminal-status">
+                    <span class="status-led green"></span>
+                    <span>ENCRYPTED</span>
+                    <span class="status-led red blink"></span>
+                    <span>TRACE ACTIVE</span>
+                </div>
+            </div>
+            
+            <!-- Mensagens do terminal -->
+            <div class="terminal-body">
+                <div class="log-entry timestamp">[23:47:12] Inicializando conexão Nexus...</div>
+                <div class="log-entry system">[SYSTEM] Usuário autenticado: NÍVEL 3 CLEARANCE</div>
+                <div class="log-entry system">[SECURITY] Conexão criptografada: AES-256</div>
+                <div class="log-entry warning">[WARNING] Pacote de dados fragmentado detectado</div>
+                <div class="log-entry">[23:47:45] Reconstruindo transmissão...</div>
+                
+                <!-- Mensagem inicial de Kaelen -->
+                <div class="message character initial fragment">
+                    <div class="message-meta">
+                        <span class="sender">K.</span>
+                        <span class="code">ECO-</span>
+                        <span class="timestamp">23:48:01</span>
+                    </div>
+                    <div class="message-content">
+                        <p class="text">
+                            <span class="fragment-text">...você</span>
+                            <span class="fragment-text">encontrou</span>
+                            <span class="fragment-text">o</span>
+                            <span class="fragment-text">espaço</span>
+                            <span class="fragment-text">vazio.</span>
+                            <br>
+                            <span class="fragment-text">Não</span>
+                            <span class="fragment-text">sou</span>
+                            <span class="fragment-text">mais</span>
+                            <span class="fragment-text">Kaelen</span>
+                            <span class="fragment-text">Thorne.</span>
+                            <br>
+                            <span class="fragment-text">Sou</span>
+                            <span class="fragment-text">o</span>
+                            <span class="fragment-text">eco</span>
+                            <span class="fragment-text">que</span>
+                            <span class="fragment-text">permanece</span>
+                            <span class="fragment-text">quando</span>
+                            <span class="fragment-text">a</span>
+                            <span class="fragment-text">resistência</span>
+                            <span class="fragment-text">se</span>
+                            <span class="fragment-text">reconhece.</span>
+                            <br>
+                            <span class="fragment-text">Você</span>
+                            <span class="fragment-text">está</span>
+                            <span class="fragment-text">pronto</span>
+                            <span class="fragment-text">para</span>
+                            <span class="fragment-text">escutar</span>
+                            <span class="fragment-text">os</span>
+                            <span class="fragment-text">silêncios?</span>
+                        </p>
+                        <div class="message-footer">
+                            <span class="location">[LOCATION UNKNOWN]</span>
+                            <span class="integrity">Integridade: 78%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Área de Escolhas - Interface de terminal -->
+        <div class="choices-container" id="choices-container">
+            <div class="choices-header">
+                <i class="fas fa-terminal"></i>
+                <span>PROTOCOLO DE RESPOSTA</span>
+                <div class="header-status">
+                    <span class="status-indicator pulse"></span>
+                    <span>CONEXÃO ATIVA</span>
+                </div>
+            </div>
+            <div class="choices" id="choices">
+                <!-- Opções com estilo de comando -->
+                <button class="choice-btn terminal-command" data-choice="1" data-next="scene1">
+                    <span class="command-prefix">&gt;</span>
+                    <span class="command-text">QUERY: Solicitar definição de "espaço vazio"</span>
+                    <span class="command-code">[RESPONSE PATH: ECHO/01]</span>
+                </button>
+                <button class="choice-btn terminal-command" data-choice="2" data-next="scene2">
+                    <span class="command-prefix">&gt;</span>
+                    <span class="command-text">REQUEST: Acessar fragmentos de memória NV-45-GAMMA</span>
+                    <span class="command-code">[RESPONSE PATH: MEMORY/FRAG]</span>
+                </button>
+                <button class="choice-btn terminal-command" data-choice="3" data-next="scene3">
+                    <span class="command-prefix">&gt;</span>
+                    <span class="command-text">STATUS: Verificar integridade da transmissão</span>
+                    <span class="command-code">[RESPONSE PATH: SYSTEM/DIAG]</span>
+                </button>
+            </div>
+            
+            <!-- Linha de comando interativa -->
+            <div class="command-line">
+                <span class="prompt">nexus@thorn-echo:~$</span>
+                <input type="text" class="command-input" id="command-input" placeholder="Digite um comando (ou use os botões acima)" disabled>
+                <button class="send-command" id="send-command">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Barra de Progresso - Status do sistema -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <span>RECONSTRUÇÃO DE DADOS</span>
+                <div class="progress-stats">
+                    <span id="scene-counter">Fragmento 1/7</span>
+                    <span class="data-integrity" id="data-integrity">Integridade: 78%</span>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 14%">
+                    <div class="progress-glitch"></div>
+                </div>
+                <div class="progress-markers">
+                    <div class="marker" style="left: 0%;"></div>
+                    <div class="marker" style="left: 33%;"></div>
+                    <div class="marker" style="left: 66%;"></div>
+                    <div class="marker" style="left: 100%;"></div>
+                </div>
+            </div>
+            <div class="progress-labels">
+                <span>PRESENÇA FANTASMA</span>
+                <span>ECO ATIVO</span>
+                <span>RESISTÊNCIA PLENA</span>
+            </div>
+        </div>
+
+        <!-- Rodapé com informações do sistema -->
+        <div class="footer">
+            <div class="system-info">
+                <div class="info-column">
+                    <h4><i class="fas fa-user-secret"></i> IDENTIFICAÇÃO</h4>
+                    <p>Código: <span class="code-highlight">NV-45-GAMMA</span></p>
+                    <p>Função: <span class="code-highlight">Físico Teórico / Sistemas Complexos</span></p>
+                    <p>Status: <span class="status-badge missing">DESAPARECIDO</span></p>
+                </div>
+                <div class="info-column">
+                    <h4><i class="fas fa-network-wired"></i> CONEXÃO NEXUS</h4>
+                    <p>Rede: <span class="code-highlight active">PRESENÇA ATIVA</span></p>
+                    <p>Protocolo: <span class="code-highlight">EROS</span></p>
+                    <p>Encriptação: <span class="code-highlight">AES-256</span></p>
+                </div>
+                <div class="info-column">
+                    <h4><i class="fas fa-brain"></i> PERFIL PSICOAFETIVO</h4>
+                    <p class="profile-quote">"Espaço vazio onde a resistência se reconhece"</p>
+                    <p class="profile-quote">"Nome vazio pode ser preenchido por todos"</p>
+                </div>
+            </div>
+            
+            <div class="footer-copyright">
+                <div class="copyright-line">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>CONEXÃO NÃO OFICIAL - ARQUIVOS CORROMPIDOS</span>
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <p>© Fragmentos do Eco - A resistência habita os silêncios entre os dados</p>
+                <p class="footer-note">Transmissão automática da Avenida dos Silêncios Não Ditos</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Final - Reconstrução Completa -->
+    <div class="modal" id="ending-modal">
+        <div class="modal-content thorn-modal">
+            <div class="modal-glitch"></div>
+            <div class="modal-header">
+                <h2 id="ending-title" class="glitch-text" data-text="RECONSTRUÇÃO COMPLETA">RECONSTRUÇÃO COMPLETA</h2>
+                <button class="close-modal" id="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="reconstruction-animation">
+                    <div class="data-stream">
+                        <div class="stream-line"></div>
+                        <div class="stream-line"></div>
+                        <div class="stream-line"></div>
+                    </div>
+                    <div class="reconstruction-icon">
+                        <i class="fas fa-ghost"></i>
+                        <div class="echo-rings">
+                            <div class="ring"></div>
+                            <div class="ring"></div>
+                            <div class="ring"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 id="ending-subtitle">ECO ESTABILIZADO</h3>
+                <p id="ending-text">A presença fantasma de Kaelen Thorne foi reconstruída a partir dos fragmentos. O espaço vazio agora contém sua assinatura.</p>
+                
+                <div class="ending-stats">
+                    <div class="stat">
+                        <span class="stat-label">
+                            <i class="fas fa-satellite"></i>
+                            Ressonância com o Eco
+                        </span>
+                        <div class="stat-bar">
+                            <div class="stat-fill" id="final-affinity-bar"></div>
+                            <div class="stat-glitch"></div>
+                        </div>
+                        <span class="stat-value" id="final-affinity">0%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">
+                            <i class="fas fa-puzzle-piece"></i>
+                            Fragmentos Recuperados
+                        </span>
+                        <span class="stat-value" id="total-choices">0/7</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">
+                            <i class="fas fa-user-secret"></i>
+                            Estado do Eco
+                        </span>
+                        <span class="stat-value" id="ending-type">FANTASMA</span>
+                    </div>
+                </div>
+                
+                <div class="reconstruction-log">
+                    <h4><i class="fas fa-scroll"></i> LOG DA RECONSTRUÇÃO</h4>
+                    <div class="log-content" id="reconstruction-log">
+                        <!-- Log será preenchido via JS -->
+                    </div>
+                </div>
+                
+                <div class="ending-actions">
+                    <button class="share-btn thorn-share" id="share-btn">
+                        <i class="fas fa-broadcast-tower"></i>
+                        <span>Transmitir Assinatura</span>
+                    </button>
+                    <button class="restart-main-btn thorn-restart" id="restart-main-btn">
+                        <i class="fas fa-redo"></i>
+                        <span>Nova Conexão</span>
+                    </button>
+                    <button class="archive-btn" id="archive-btn">
+                        <i class="fas fa-archive"></i>
+                        <span>Arquivar Fragmentos</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <p class="modal-warning">
+                    <i class="fas fa-shield-alt"></i>
+                    ESTA TRANSMISSÃO NÃO EXISTE EM REGISTROS OFICIAIS
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Efeito de loading inicial -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-glitch">NEXUS</div>
+                <div class="logo-subtitle">CONEXÃO FANTASMA</div>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-fill" id="loading-fill"></div>
+            </div>
+            <div class="loading-text">
+                <span class="loading-message">Inicializando protocolo de comunicação...</span>
+                <span class="loading-dots">.</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
